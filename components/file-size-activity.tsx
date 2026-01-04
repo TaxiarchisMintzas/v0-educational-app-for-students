@@ -13,9 +13,9 @@ interface FileItem {
 }
 
 const fileItems: FileItem[] = [
-  { id: "1", name: "Φωτογραφία.jpg", size: "medium", animal: "🐕", animalName: "Σκύλος (Μεσαίο)" },
-  { id: "2", name: "Βίντεο.mp4", size: "large", animal: "🐘", animalName: "Ελέφαντας (Μεγάλο)" },
-  { id: "3", name: "Κείμενο.txt", size: "small", animal: "🐜", animalName: "Μυρμήγκι (Μικρό)" },
+  { id: "1", name: "Φωτογραφία.jpg", size: "medium", animal: "🐕", animalName: "Σκύλος" },
+  { id: "2", name: "Βίντεο.mp4", size: "large", animal: "🐘", animalName: "Ελέφαντας" },
+  { id: "3", name: "Κείμενο.txt", size: "small", animal: "🐜", animalName: "Μυρμήγκι" },
 ]
 
 interface FileSizeActivityProps {
