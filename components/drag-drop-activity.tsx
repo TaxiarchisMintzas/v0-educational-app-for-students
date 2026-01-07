@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import StarFeedback from "@/components/star-feedback"
 import DraggableFile from "@/components/draggable-file"
@@ -34,7 +34,19 @@ export default function DragDropActivity({ onComplete }: DragDropActivityProps) 
     video: [],
   })
   const [feedback, setFeedback] = useState<Record<string, boolean | null>>({})
-  const [availableFiles, setAvailableFiles] = useState<FileItem[]>(files)
+  const [availableFiles, setAvailableFiles] = useState<FileItem[]>([])
+
+  useEffect(() => {
+    const shuffleArray = <T,>(array: T[]): T[] => {
+      const newArray = [...array]
+      for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+      }
+      return newArray
+    }
+    setAvailableFiles(shuffleArray(files))
+  }, [])
 
   const handleDrop = (fileId: string, folderType: string) => {
     const file = availableFiles.find((f) => f.id === fileId)

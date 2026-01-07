@@ -26,8 +26,17 @@ export default function HomePage() {
   }
 
   const handleActivityComplete = (activity: "dragdrop" | "folder" | "filesize", stars: number) => {
-    setActivityStars((prev) => ({ ...prev, [activity]: stars }))
-    setTotalStars((prev) => prev + stars)
+    console.log("[v0] Activity completed:", activity, "stars:", stars)
+    setActivityStars((prev) => {
+      const updated = { ...prev, [activity]: stars }
+      console.log("[v0] Updated activity stars:", updated)
+      return updated
+    })
+    setTotalStars((prev) => {
+      const newTotal = prev + stars
+      console.log("[v0] Total stars updated from", prev, "to", newTotal)
+      return newTotal
+    })
 
     if (activity === "dragdrop") {
       setCurrentScreen("folder")
